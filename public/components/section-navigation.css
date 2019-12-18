@@ -16,7 +16,8 @@
     }
 }
 
-.rc-link__item {
+.rc-link-list__item {
+
     @apply flex-1 py-2 hidden;
 
     @screen lg {
@@ -61,7 +62,7 @@
         }
     }
 
-    &.link-active {
+    &.rc-link-list__item--active {
         @apply text-brand1 block order-first;
         @screen lg {
             @apply order-none;
