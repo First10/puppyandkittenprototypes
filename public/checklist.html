@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10"
+        type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.css?v=8-7-10" type="text/css"
+        rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10"
+        type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10"
+        type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="build/tailwind.css">
+</head>
+
+<body>
+
+    <h2 class="text-brand1">Checklist</h2>
+
+    <div class="block" data-checklist>
+        <div class="mt-2">
+            <div class="mt-1">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox h-6 w-6">
+                    <span class="ml-3 text-lg text-brand1">Wake up in the morning</span>
+                </label>
+                <span class="block ml-10">This is a must</span>
+            </div>
+            <div class="mt-1">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox h-6 w-6">
+                    <span class="ml-3 text-lg text-brand1">Eat breakfast</span>
+                </label>
+            </div>
+            <div class="mt-1">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox h-6 w-6">
+                    <span class="ml-3 text-lg text-brand1">Do some star jumps</span>
+                </label>
+            </div>
+            <div class="mt-1">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox h-6 w-6">
+                    <span class="ml-3 text-lg text-brand1">De-ice the car</span>
+                </label>
+            </div>
+            <div class="mt-1">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox h-6 w-6">
+                    <span class="ml-3 text-lg text-brand1">Eat some mackerel</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const checklist = document.querySelector('[data-checklist]');
+        const key = `${window.location.pathname}-data-checklist`;
+        let state = JSON.parse(localStorage.getItem(key)) || [];
+
+        checklist.querySelectorAll('input[type="checkbox"]').forEach(input => {
+            const title = input.parentNode.querySelector('span').innerText;
+            if (state.includes(title)) {
+                input.checked = true;
+            }
+            input.addEventListener('click', event => {
+                if (state.includes(title)) {
+                    state = state.filter(item => {
+                        return item != title;
+                    });
+                } else {
+                    state.push(title);
+                }
+                
+                localStorage.setItem(key, JSON.stringify(state));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

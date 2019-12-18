@@ -1,0 +1,3 @@
+@import "./tailwind-core.css";
+@import "./components/custom.css";
+@tailwind utilities;

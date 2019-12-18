@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10"
+    type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.css?v=8-7-10" type="text/css"
+        rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10"
+        type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10"
+        type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="build/tailwind.css">
+</head>
+<body>
+<nav class="section-navigation">
+    <div class="collapse-control rc-icon rc-down--xs rc-iconography">
+    </div>
+    <ul class="link-list">
+        <li class="link-item link-active">
+            <a href="#welcominghome">
+                <span class="link-icon rc-icon rc-home rc-iconography"></span>
+                <span class="link-text">Welcoming home</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#prearrival">
+                <span class="link-icon rc-icon rc-calendar rc-iconography"></span>
+                <span class="link-text">Pre Arrival</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#feeding">
+                <span class="link-icon rc-icon rc-food rc-iconography"></span>
+                <span class="link-text">Feeding</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#growthstages">
+                <span class="link-icon rc-icon rc-weight rc-iconography"></span>
+                <span class="link-text">Growth Stages</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#trainingandplay">
+                <span class="link-icon rc-icon rc-training rc-iconography"></span>
+                <span class="link-text">Training and play</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#grooming">
+                <span class="link-icon rc-icon rc-grooming rc-iconography"></span>
+                <span class="link-text">Grooming</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#health">
+                <span class="link-icon rc-icon rc-pharmacy rc-iconography"></span>
+                <span class="link-text">Health</span>
+            </a>
+        </li>
+        <li class="link-item">
+            <a href="#behaviour">
+                <span class="link-icon rc-icon rc-experience rc-iconography"></span>
+                <span class="link-text">Behaviour</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<script type="text/javascript">
+    const control = document.querySelector('.collapse-control');
+    control.addEventListener('click', event => {
+        const container = event.target.parentNode;
+        const items = container.querySelector('ul');
+        items.classList.toggle('expanded');
+
+        const expanded = items.classList.contains('expanded');
+        event.target.classList.remove(expanded ? 'rc-down--xs' : 'rc-minus--xs');
+        event.target.classList.add(expanded ? 'rc-minus--xs' : 'rc-down--xs');
+    });
+
+    control.parentElement.querySelectorAll('li a').forEach(link => {
+        link.addEventListener('click', event => {
+            const listItem = event.target.parentNode.parentNode;
+            control.click();
+
+            if (listItem.classList.contains('link-active')) {
+                event.preventDefault();
+                return;
+            }
+
+            control.parentElement.querySelector('.link-active').classList.remove('link-active');
+            listItem.classList.add('link-active');
+        })
+    });
+</script>
+
+</body>
+
+</html>
