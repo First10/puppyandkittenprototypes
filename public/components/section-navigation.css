@@ -1,14 +1,14 @@
-nav.section-navigation {
+.rc-section-navigation {
     @apply w-auto block relative select-none;
 
-    div.collapse-control {
+    .collapse-control {
         @apply absolute top-0 right-0 pr-4 pt-2 cursor-pointer;
         @screen lg {
             @apply hidden;
         }
     }
 
-    ul.link-list {
+    .rc-link-list {
         @apply flex flex-col;
         @screen lg {
             @apply flex-row;
@@ -16,21 +16,21 @@ nav.section-navigation {
     }
 }
 
-.link-item {
+.rc-link__item {
     @apply flex-1 py-2 hidden;
 
     @screen lg {
         @apply text-center block px-4 border-0;
     }
-    
+
     @screen xl {
         @apply px-8;
     }
 
     &:hover {
         @apply text-brand1;
-        @screen lg { 
-            .link-text {
+        @screen lg {
+            .rc-link__text {
                 @apply visible;
             }
         }
@@ -46,17 +46,17 @@ nav.section-navigation {
     &:last-child {
         @apply border-0;
     }
-    
-    .link-text {
+
+    .rc-link__text {
         @apply text-sm align-middle;
-        @screen lg { 
+        @screen lg {
             @apply py-2 invisible
         }
     }
-    
-    .link-icon {
+
+    .rc-link__icon {
         @apply p-4;
-        @screen lg { 
+        @screen lg {
             @apply p-0 block
         }
     }
