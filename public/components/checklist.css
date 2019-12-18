@@ -1,0 +1,15 @@
+label {
+  position: relative;
+}
+
+label.checked:after {
+  left: 35px;
+  height: 2px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(50% + 1px);
+  width: calc(100% - 30px);
+  background-color: #E2001A;
+  transform: translateY(-50%);
+}
