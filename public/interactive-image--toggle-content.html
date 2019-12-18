@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10"
+          type="text/css" rel="stylesheet">
+    <script src="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.min.bundle.js?v=8-7-12" ></script>
+    <link rel="stylesheet" href="build/tailwind.css">
+</head>
+
+<body>
+
+<div class="rc-layout-container rc-two-column rc-content-h-middle rc-interactive-image--toggle-content">
+    <div class="rc-column">
+        <figure class="rc-bg-image rc-fixed-ratio rc-fixed-ratio--16-9" style="background-image: url('/build/Content-Block_boxer-puppy_cutout_800px.png' )">
+            <div class="rc-interactive-image">
+                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-plus--xs rc-interactive-button rc-interactive-image__button" data-js-left="30%" data-js-bottom="" data-js-right="" data-js-top="9%" data-js-icon-button aria-label="One" rc-data-button-target="one">
+                    <span class="rc-screen-reader-text">Click interaction</span>
+                </button>
+                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-sustainable--xs rc-interactive-button rc-interactive-image__button" data-js-left="" data-js-bottom="" data-js-right="34%" data-js-top="51%" data-js-icon-button aria-label="Two" rc-data-button-target="two">
+                    <span class="rc-screen-reader-text">Click interaction</span>
+                </button>
+                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-food--xs rc-interactive-button rc-interactive-image__button" data-js-left="23%" data-js-bottom="6%" data-js-right="" data-js-top="" data-js-icon-button aria-label="Three" rc-data-button-target="three">
+                    <span class="rc-screen-reader-text">Click interaction</span>
+                </button>
+            </div>
+            <figcaption class="rc-screen-reader-text">Text about image</figcaption>
+        </figure>
+    </div>
+    <div class="rc-column">
+        <div rc-data-button-target="one" class="rc-interactive-image--toggle-content__content rc-margin-x--lg">
+            <h3 class="rc-gamma"><span class="rc-hanging-indent">1.</span>Incredible in every detail</h3>
+            <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+                urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+                Pellentesque auctor, arcu non condimentum venenatis.</p>
+        </div>
+        <div rc-data-button-target="two" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden">
+            <h3 class="rc-gamma"><span class="rc-hanging-indent">2.</span>Another title</h3>
+            <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+                urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+                Pellentesque auctor, arcu non condimentum venenatis.</p>
+        </div>
+        <div rc-data-button-target="three" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden">
+            <h3 class="rc-gamma"><span class="rc-hanging-indent">3.</span>Yet another title</h3>
+            <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+                urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+                Pellentesque auctor, arcu non condimentum venenatis.</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+
+<script>
+    document.getElementsByClassName('rc-interactive-image--toggle-content')[0]
+      .addEventListener('click', (e) => {
+        if (e.target.matches('button[rc-data-button-target]')) {
+          // Reset all the items to hidden.
+          document.querySelectorAll('div[rc-data-button-target]').forEach(el => {
+            RCDL.utilities.modifyClass('remove', el, 'rc-hidden');
+            RCDL.utilities.modifyClass('add', el, 'rc-hidden');
+          });
+
+          RCDL.utilities.modifyClass('remove',
+            document.querySelector(`div[rc-data-button-target="${e.target.getAttribute('rc-data-button-target')}"]`), 'rc-hidden');
+        }
+
+    })
+</script>
+
+<style>
+    .rc-hanging-indent {
+        position: absolute;
+        left: -1.5rem;
+    }
+
+    .rc-interactive-image--toggle-content__content {
+        position: relative;
+    }
+
+    @media (max-width: 769px) {
+        .rc-interactive-image--toggle-content .rc-bg-image.rc-fixed-ratio--16-9 {
+            height: auto;
+        }
+
+        .rc-interactive-image--toggle-content .rc-btn {
+            min-width: 2rem;
+            height: 2rem;
+        }
+
+        .rc-interactive-image--toggle-content .rc-interactive-button::before {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+
+</style>
+
+</html>
