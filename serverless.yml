@@ -1,0 +1,48 @@
+service: puppy-and-kittens
+
+plugins:
+  - serverless-finch
+
+frameworkVersion: ">1.26.0"
+
+custom:
+  client:
+    bucketName: puppy-and-kittens-prototypes
+    distributionFolder: /public
+    indexDocument: index.html
+    errorDocument: index.html
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  profile: HOME-TOOLS
+  region: eu-west-2
+
+package:
+  exclude:
+    - node_modules/**
+
+#functions:
+#  save:
+#    handler: src/saveToS3.handler
+#    events:
+#      - http:
+#          path: saveRespone
+#          method: post
+#          cors: true
+#  saveInitInfo:
+#    handler: src/saveToS3.handler
+#    events:
+#      - http:
+#          path: saveInitInfo
+#          method: post
+#          cors: true
+
+#resources:
+#  Resources:
+#    ReportBucket:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: ${self:custom.response.bucketName}
+
