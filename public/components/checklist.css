@@ -2,14 +2,59 @@ label {
   position: relative;
 }
 
-label.checked:after {
-  left: 35px;
+span.rc-checklist-row__title.checked:after {
+  left: -1px;
   height: 2px;
   content: '';
   display: block;
   position: absolute;
   top: calc(50% + 1px);
-  width: calc(100% - 30px);
+  width: calc(100% + 4px);
   background-color: #E2001A;
   transform: translateY(-50%);
+}
+
+.rc-checklist {}
+.rc-checklist .rc-checklist-row {}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label {}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label:before {
+  left: 0;
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 3px;
+  position: absolute;
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label:after {
+  left: 0;
+  top: -4px;
+  width: 24px;
+  content: '';
+  height: 32px;
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  transform-origin: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-transform-origin: 50% 50%;
+  background-position: 18.18% 100%;
+  background-image: url('https://d3moonnr9fkxfg.cloudfront.net/royal-canin.sprite--brand1--xs.svg?v=8-7-12');
+  opacity: 0;
+}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label.checked:after {
+  opacity: 1;
+}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label .rc-checklist-row__input {
+  opacity: 0;
+}
+.rc-checklist .rc-checklist-row .rc-checklist-row__label .rc-checklist-row__title {
+  margin: 0 0 0 20px;
+  position: relative;
+}
+.rc-checklist .rc-checklist-row .rc-checklist-row__subtitle {
+  display: block;
+  margin-left: 36px;
 }
