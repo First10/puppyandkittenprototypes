@@ -1,17 +1,16 @@
-<html>
+<html class="rc-loaded--final">
 
 <head>
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10"
-    type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.css?v=8-7-10" type="text/css"
-        rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10"
-        type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10"
-        type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css"
-        rel="stylesheet">
-    <link rel="stylesheet" href="build/tailwind.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section Navigation</title>
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="./components/section-navigation.css">
 </head>
 <body>
 <nav class="rc-section-navigation">
@@ -82,33 +81,33 @@
         event.target.classList.add(expanded ? 'rc-minus--xs' : 'rc-down--xs');
     });
 
-    document.querySelector('.rc-section-navigation').addEventListener('click', function (e) {
-      console.log('target:', e.target);
-      if (e.target.matches('.rc-link-list__item') || e.target.matches('.rc-list-anchor-link') || e.target.matches('.rc-link__icon')) {
-        control.click();
-        console.log('test');
-      }
-    });
-
-    // control.parentElement.querySelectorAll('ul li a').forEach(link => {
-    //     link.addEventListener('click', event => {
-    //         const listItem = event.target.parentNode.parentNode;
-    //         control.click();
-
-    //         link.children[0].classList.remove('rc-iconography');
-    //         link.children[0].classList.add('rc-brand1');
-
-    //         if (listItem.classList.contains('rc-link-list__item--active')) {
-    //             event.preventDefault();
-    //             return;
-    //         }
-
-    //         control.parentElement.querySelector('.rc-link-list__item--active').classList.remove('rc-link-list__item--active');
-    //         listItem.classList.add('rc-link-list__item--active');
-    //         link.children[0].classList.remove('rc-iconography');
-    //         link.children[0].classList.add('rc-brand1');
-    //     })
+    // document.querySelector('.rc-section-navigation').addEventListener('click', function (e) {
+    //   console.log('target:', e.target);
+    //   if (e.target.matches('.rc-link-list__item') || e.target.matches('.rc-list-anchor-link') || e.target.matches('.rc-link__icon')) {
+    //     control.click();
+    //     console.log('test');
+    //   }
     // });
+
+    control.parentElement.querySelectorAll('ul li a').forEach(link => {
+        link.addEventListener('click', event => {
+            const listItem = event.target.parentNode.parentNode;
+            control.click();
+
+            link.children[0].classList.remove('rc-iconography');
+            link.children[0].classList.add('rc-brand1');
+
+            if (listItem.classList.contains('rc-link-list__item--active')) {
+                event.preventDefault();
+                return;
+            }
+
+            control.parentElement.querySelector('.rc-link-list__item--active').classList.remove('rc-link-list__item--active');
+            listItem.classList.add('rc-link-list__item--active');
+            link.children[0].classList.remove('rc-iconography');
+            link.children[0].classList.add('rc-brand1');
+        })
+    });
 
 </script>
 
