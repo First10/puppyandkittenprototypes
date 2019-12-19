@@ -1,5 +1,6 @@
 .rc-featured-content-block {
   display: block;
+  position: relative;
 }
 
 .rc-featured-content-block__image {
@@ -11,6 +12,10 @@
 }
 
 .rc-featured-content-block__content {
-  height: 420px;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
+
+/* .rc-featured-content-block__content--right {
+  margin-left: auto;
+} */
