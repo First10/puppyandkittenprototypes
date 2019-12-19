@@ -1,0 +1,17 @@
+.rc-featured-content-block {
+  display: block;
+}
+
+.rc-featured-content-block__image {
+  background-image: url('../images/dog-image.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+}
+
+.rc-featured-content-block__content {
+  background-color: blue;
+  height: 420px;
+  width: 500px;
+}
