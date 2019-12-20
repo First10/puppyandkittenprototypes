@@ -1,0 +1,65 @@
+<div class="rc-layout-container rc-two-column rc-content-h-middle rc-interactive-image--toggle-content">
+  <div class="rc-column">
+      <figure class="rc-bg-image rc-fixed-ratio rc-fixed-ratio--16-9" style="background-image: url('./images/boxer-puppy.png')">
+          <div class="rc-interactive-image">
+              <button id="panel-one-button"
+                      class="rc-btn rc-btn--action rc-icon rc-brand3 rc-plus--xs rc-interactive-button rc-interactive-image__button"
+                      data-js-left="30%"
+                      data-js-bottom
+                      data-js-right
+                      data-js-top="9%"
+                      data-js-icon-button
+                      aria-label="One"
+                      aria-controls="panel-one">
+                  <span class="rc-screen-reader-text">One</span>
+              </button>
+              <button id="panel-two-button"
+                      class="rc-btn rc-btn--action rc-icon rc-brand3 rc-sustainable--xs rc-interactive-button rc-interactive-image__button"
+                      data-js-left
+                      data-js-bottom
+                      data-js-right="34%"
+                      data-js-top="51%"
+                      data-js-icon-button
+                      aria-label="Two"
+                      tabindex="-1"
+                      aria-controls="panel-two">
+                  <span class="rc-screen-reader-text">Two</span>
+              </button>
+              <button id="panel-three-button"
+                      class="rc-btn rc-btn--action rc-icon rc-brand3 rc-food--xs rc-interactive-button rc-interactive-image__button"
+                      data-js-left="23%"
+                      data-js-bottom="6%"
+                      data-js-right
+                      data-js-top
+                      data-js-icon-button
+                      aria-label="Three"
+                      tabindex="-1"
+                      aria-controls="panel-three">
+                  <span class="rc-screen-reader-text">Three</span>
+              </button>
+          </div>
+          <figcaption class="rc-screen-reader-text">Text about image</figcaption>
+      </figure>
+  </div>
+  <div class="rc-column">
+      <div id="panel-one" aria-labelledby="panel-one-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg" aria-selected="true">
+          <h3 class="rc-gamma"><span class="rc-hanging-indent">1.</span>Incredible in every detail</h3>
+          <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+              urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+              Pellentesque auctor, arcu non condimentum venenatis.</p>
+      </div>
+      <div id="panel-two" aria-labelledby="panel-two-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden" aria-selected="false">
+          <h3 class="rc-gamma"><span class="rc-hanging-indent">2.</span>Another title</h3>
+          <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+              urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+              Pellentesque auctor, arcu non condimentum venenatis.</p>
+      </div>
+      <div id="panel-three" aria-labelledby="panel-three-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden" aria-selected="false" tabindex="-1">
+          <h3 class="rc-gamma"><span class="rc-hanging-indent">3.</span>Yet another title</h3>
+          <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
+              urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
+              Pellentesque auctor, arcu non condimentum venenatis.</p>
+      </div>
+
+  </div>
+</div>
