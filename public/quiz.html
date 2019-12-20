@@ -17,12 +17,39 @@
     <div class="rc-layout-container rc-one-column">
         <div class="rc-column">
             <div class="rc-quiz">
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="1">
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="1">Answer 1</button>
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 2</button>
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 3</button>
+                <div class="rc-quiz__slide rc-text--center rc-max-width--md" data-rc-quiz-slide-no="1">
+
+                        <p class="rc-intro">Question 1 out of 5</p>
+                        <h2 class="rc-beta">How often should you feed a three<br>month old puppy?</h2>
+
+                    <div class="rc-input rc-input--stacked rc-input--stacked--radio-box rc-text--center">
+                        <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a1" value="Once a day" type="radio" name="radio-1-box" data-rc-quiz-answer="0" />
+                        <label class="rc-input__label--inline" for="id-radio-q1a1">Once a day</label>
+                    </div>
+                    <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                        <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a2" value="Twice a day" type="radio" name="radio-1-box" data-rc-quiz-answer="0" />
+                        <label class="rc-input__label--inline" for="id-radio-q1a2">Twice a day</label>
+                    </div>
+                    <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                        <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a3" value="Three times a day" type="radio" name="radio-1-box" data-rc-quiz-answer="1"/>
+                        <label class="rc-input__label--inline" for="id-radio-q1a3">Three times a day</label>
+                    </div>
                 </div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="2"></div>
+                <div class="rc-quiz__slide rc-max-width--lg rc-hidden" data-rc-quiz-slide-no="2">
+
+                        <div class="rc-layout-container rc-two-column">
+                                <div class="rc-column">
+                                        <h2 class="rc-beta rc-text--center--mobile">Correct!</h2>
+                                        <p class="rc-intro">For all breed sizes, three month old puppies require three equally sized meals a day. Puppies are unable to regulate their food intake, so more regular, smaller portions are gentler on their digestive system.</p>
+                                        <p><button class="rc-btn rc-btn--two rc-quiz__next">Next Question</button> <span class="rc-xs-up">or</span> <a class="rc-styled-link rc-quiz__back" href="#" aria-label="Links to example page">Go back</a></p>
+                                </div>
+                                <div class="rc-column">
+                                        <img class="rc-img-border" src="https://developer.royalcanin.com/assets/images/img-article-full.jpg" alt="Always include descriptive alternative text for screen readers" />
+                                </div>
+                              </div>
+                    
+                    
+                </div>
                 <div class="rc-quiz__slide" data-rc-quiz-slide-no="3"></div>
                 <div class="rc-quiz__slide" data-rc-quiz-slide-no="4"></div>
                 <div class="rc-quiz__slide" data-rc-quiz-slide-no="5"></div>
@@ -30,26 +57,83 @@
             </div>
         </div>
     </div>
+    <script src="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.min.bundle.js?v=8-7-10"></script>
+    <script>
+    RCDL.features.quiz = {
+        defaultSelector: '.rc-quiz',
+        localStorageSlider: 'rc-quiz-dog-slider',
+        localstorageAnswers: 'rc-quiz-dog-answers',
+        start: ({element, selector = RCDL.features.quiz.defaultSelector}) => {
+            RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'quiz', start: true})
+                .forEach(element => RCDL.features.quiz.create({element}));
+            },
+            create: ({element}) => {
+            const quizContainer = element;
+            RCDL.features.quiz.quizSlides = quizContainer.getElementsByClassName('rc-quiz__slide');
+            const quizAnswers = quizContainer.getElementsByClassName('rc-quiz__answer');
+            const quizNext = quizContainer.getElementsByClassName('rc-quiz__next');
+            const quizPrevious = quizContainer.getElementsByClassName('rc-quiz__back');
+
+            [...quizAnswers].forEach(
+                function(quizAnswer) {
+                    quizAnswer.addEventListener('click', function() {
+                        RCDL.features.quiz.selectAnswer(quizAnswer);
+                });
+            });
+            [...quizNext].forEach(
+                function(quizNextButton) {
+                    quizNextButton.addEventListener('click', function() {
+                        RCDL.features.quiz.changeSlide(1);
+                });
+            });
+            [...quizPrevious].forEach(
+                function(quizPreviousButton) {
+                    quizPreviousButton.addEventListener('click', function() {
+                        RCDL.features.quiz.changeSlide(-1);
+                });
+            });
+        },
+        selectAnswer: (quizAnswer) =>{
+            RCDL.features.quiz.changeSlide(1);
+        },
+        changeSlide: (increment) =>{
+            /// this needs to be changed to check which slide you are currently on and then increment.
+            /// currently the local storage value is used to get the current slider but this does not work 
+            /// if you are not setting the current slider on init, which it currently does not.
+
+            var currentSliderNumber = 1;
+            var nextSliderNumber = 2;
+
+            localforage.getItem(RCDL.features.quiz.localStorageSlider, function (err, value) {
+                alert('good: ' + value);
+                if(value != null){
+                    currentSliderNumber = value;
+                }
+                nextSliderNumber = currentSliderNumber + increment;
+                
+                [...RCDL.features.quiz.quizSlides].forEach(
+                    function(quizSlide) {
+                        if(quizSlide.dataset.rcQuizSlideNo == currentSliderNumber){
+                            quizSlide.classList.add("rc-hidden");
+                        }
+                        if(quizSlide.dataset.rcQuizSlideNo == nextSliderNumber){
+                            quizSlide.classList.remove("rc-hidden");
+                        }
+                    }
+                )
+
+                localforage.setItem(RCDL.features.quiz.localStorageSlider, nextSliderNumber);
+            });
+
+
+        }
+    };
+
+    RCDL.features.quiz.start({element: document});
+    </script>
 </body>
 
 
 
-<script>
-  RCDL.features.quiz = {
-    defaultSelector: '.rc-quiz',
-    start: ({element, selector = RCDL.features.quiz.defaultSelector}) => {
-      RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'quiz', start: true})
-        .forEach(element => RCDL.features.quiz.create({element}));
-    },
-    create: ({element}) => {
-      const quizContainer = element;
-      const quizSlides = quizContainer.getElementsByClassName('quiz__slides');
-      const quizAnswers = quizContainer.getElementsByClassName('quiz__answer');
-
-    }
-  };
-
-  RCDL.features.quiz.start({element: document});
-</script>
 
 </html>
