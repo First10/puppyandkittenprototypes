@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -15,50 +16,35 @@
 
 <body class="rc-bg-colour--brand4">
 
-    <div class="rc-checklist rc-padding--lg" data-checklist>
-        <h2 class="rc-beta rc-margin-bottom--xl">Checklist</h2>
-            <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label">
-                    <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <div class="rc-checklist-row__title-container">
-                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning</span>
-                    </div>
-                </label>
-                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
-            </div>
-            <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label">
-                    <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <div class="rc-checklist-row__title-container">
-                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 1</span>
-                    </div>
-                </label>
-                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
-            </div>
-            <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label">
-                    <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <div class="rc-checklist-row__title-container">
-                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 2</span>
-                    </div>
-                </label>
-                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
-            </div>
-            <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label">
-                    <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <div class="rc-checklist-row__title-container">
-                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 3</span>
-                    </div>
-                </label>
-                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
-            </div>
-        </div>
-
+    <form class="rc-checklist rc-padding--lg" data-rc-checklist>
+      <h2 class="rc-beta rc-margin-bottom--xl">Checklist</h2>
+      <div class="rc-checklist-row rc-margin-bottom--lg">
+        <label class="rc-checklist-row__label">
+          <input type="checkbox" class="rc-checklist-row__input form-checkbox">
+          <span class="rc-checklist-row__title-container">
+            <span class="rc-checklist-row__title rc-delta">Wake up in the morning</span>
+          </span>
+        </label>
+        <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat
+          a placerat id, commodo et sapien.</p>
+      </div>
+      <div class="rc-checklist-row rc-margin-bottom--lg">
+        <label class="rc-checklist-row__label">
+          <input type="checkbox" class="rc-checklist-row__input form-checkbox">
+          <span class="rc-checklist-row__title-container">
+            <span class="rc-checklist-row__title rc-delta">Wake up in the morning 2</span>
+          </span>
+        </label>
+        <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat
+          a placerat id, commodo et sapien.</p>
+      </div>
+    </form>
 
     <script type="text/javascript">
-        const checklist = document.querySelector('[data-checklist]');
-        const key = `${window.location.pathname}-data-checklist`;
+        const checklist = document.querySelector('[data-rc-checklist]');
+        const key = `${window.location.pathname}-data-rc-checklist`;
         let state = JSON.parse(localStorage.getItem(key)) || [];
 
         checklist.querySelectorAll('input[type="checkbox"]').forEach(input => {
