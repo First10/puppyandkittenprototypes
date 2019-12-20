@@ -10,7 +10,6 @@
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10" type="text/css" rel="stylesheet">
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10" type="text/css" rel="stylesheet">
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="./components/checklist.css">
 </head>
 
@@ -19,32 +18,40 @@
     <div class="rc-checklist rc-padding--lg" data-checklist>
         <h2 class="rc-beta rc-margin-bottom--xl">Checklist</h2>
             <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label inline-flex items-center">
+                <label class="rc-checklist-row__label">
                     <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <span class="rc-checklist-row__title rc-delta">Wake up in the morning</span>
+                    <div class="rc-checklist-row__title-container">
+                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning</span>
+                    </div>
                 </label>
-                <span class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</span>
+                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
             </div>
             <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label inline-flex items-center">
+                <label class="rc-checklist-row__label">
                     <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <span class="rc-checklist-row__title rc-delta">Wake up in the morning 1</span>
+                    <div class="rc-checklist-row__title-container">
+                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 1</span>
+                    </div>
                 </label>
-                <span class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</span>
+                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
             </div>
             <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label inline-flex items-center">
+                <label class="rc-checklist-row__label">
                     <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <span class="rc-checklist-row__title rc-delta">Wake up in the morning 2</span>
+                    <div class="rc-checklist-row__title-container">
+                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 2</span>
+                    </div>
                 </label>
-                <span class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</span>
+                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
             </div>
             <div class="rc-checklist-row rc-margin-bottom--lg">
-                <label class="rc-checklist-row__label inline-flex items-center">
+                <label class="rc-checklist-row__label">
                     <input type="checkbox" class="rc-checklist-row__input form-checkbox">
-                    <span class="rc-checklist-row__title rc-delta">Wake up in the morning 3</span>
+                    <div class="rc-checklist-row__title-container">
+                      <span class="rc-checklist-row__title rc-delta">Wake up in the morning 3</span>
+                    </div>
                 </label>
-                <span class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</span>
+                <p class="rc-checklist-row__subtitle rc-body rc-margin-top--xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non varius urna. Fusce efficitur urna sem, sed cursus nulla rhoncus in. Vivamus enim lacus, consequat a placerat id, commodo et sapien.</p>
             </div>
         </div>
 
@@ -57,19 +64,19 @@
         checklist.querySelectorAll('input[type="checkbox"]').forEach(input => {
             const title = input.parentNode.querySelector('span').innerText;
             if (state.includes(title)) {
-                input.nextElementSibling.classList.add('checked');
+                input.nextElementSibling.childNodes[1].classList.add('checked');
                 input.parentNode.classList.add('checked');
                 input.checked = true;
             }
             input.addEventListener('click', event => {
                 if (state.includes(title)) {
-                    event.target.nextElementSibling.classList.remove('checked');
+                    event.target.nextElementSibling.childNodes[1].classList.remove('checked');
                     event.target.parentNode.classList.remove('checked');
                     state = state.filter(item => {
-                        return item != title;
+                      return item != title;
                     });
-                } else {
-                    event.target.nextElementSibling.classList.add('checked');
+                  } else {
+                    event.target.nextElementSibling.childNodes[1].classList.add('checked');
                     event.target.parentNode.classList.add('checked');
                     state.push(title);
                 }
