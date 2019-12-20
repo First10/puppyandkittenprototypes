@@ -10,15 +10,46 @@
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10" type="text/css" rel="stylesheet">
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10" type="text/css" rel="stylesheet">
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="/build/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.7.3/dist/localforage.min.js" integrity="sha256-H/ZsHjKSJUnQyCQHZwPmn7VTWFeTTI+qgCP1GkiB9zI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="rc-layout-container rc-one-column">
         <div class="rc-column">
-            <h1 class="rc-espilon"> 1 / 1 </h1>
+            <div class="rc-quiz">
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="1">
+                    <button class="rc-quiz__answer" data-rc-quiz-answer="1">Answer 1</button>
+                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 2</button>
+                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 3</button>
+                </div>
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="2"></div>
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="3"></div>
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="4"></div>
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="5"></div>
+                <div class="rc-quiz__slide" data-rc-quiz-slide-no="6"></div>
+            </div>
         </div>
     </div>
 </body>
+
+
+
+<script>
+  RCDL.features.quiz = {
+    defaultSelector: '.rc-quiz',
+    start: ({element, selector = RCDL.features.quiz.defaultSelector}) => {
+      RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'quiz', start: true})
+        .forEach(element => RCDL.features.quiz.create({element}));
+    },
+    create: ({element}) => {
+      const quizContainer = element;
+      const quizSlides = quizContainer.getElementsByClassName('quiz__slides');
+      const quizAnswers = quizContainer.getElementsByClassName('quiz__answer');
+
+    }
+  };
+
+  RCDL.features.quiz.start({element: document});
+</script>
 
 </html>

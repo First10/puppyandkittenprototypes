@@ -7,7 +7,6 @@
     <title>Interactive Image</title>
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10"type="text/css" rel="stylesheet">
     <script src="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.min.bundle.js?v=8-7-12" ></script>
-    <link rel="stylesheet" href="build/tailwind.css">
 </head>
 
 <body>
@@ -16,33 +15,59 @@
     <div class="rc-column">
         <figure class="rc-bg-image rc-fixed-ratio rc-fixed-ratio--16-9" style="background-image: url('/build/Content-Block_boxer-puppy_cutout_800px.png' )">
             <div class="rc-interactive-image">
-                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-plus--xs rc-interactive-button rc-interactive-image__button" data-js-left="30%" data-js-bottom="" data-js-right="" data-js-top="9%" data-js-icon-button aria-label="One" rc-data-button-target="one">
-                    <span class="rc-screen-reader-text">Click interaction</span>
+                <button id="panel-one-button"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-plus--xs rc-interactive-button rc-interactive-image__button"
+                        data-js-left="30%"
+                        data-js-bottom
+                        data-js-right
+                        data-js-top="9%"
+                        data-js-icon-button
+                        aria-label="One"
+                        aria-controls="panel-one">
+                    <span class="rc-screen-reader-text">One</span>
                 </button>
-                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-sustainable--xs rc-interactive-button rc-interactive-image__button" data-js-left="" data-js-bottom="" data-js-right="34%" data-js-top="51%" data-js-icon-button aria-label="Two" rc-data-button-target="two">
-                    <span class="rc-screen-reader-text">Click interaction</span>
+                <button id="panel-two-button"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-sustainable--xs rc-interactive-button rc-interactive-image__button"
+                        data-js-left
+                        data-js-bottom
+                        data-js-right="34%"
+                        data-js-top="51%"
+                        data-js-icon-button
+                        aria-label="Two"
+                        tabindex="-1"
+                        aria-controls="panel-two">
+                    <span class="rc-screen-reader-text">Two</span>
                 </button>
-                <button class="rc-btn rc-btn--action rc-icon rc-brand3 rc-food--xs rc-interactive-button rc-interactive-image__button" data-js-left="23%" data-js-bottom="6%" data-js-right="" data-js-top="" data-js-icon-button aria-label="Three" rc-data-button-target="three">
-                    <span class="rc-screen-reader-text">Click interaction</span>
+                <button id="panel-three-button"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-food--xs rc-interactive-button rc-interactive-image__button"
+                        data-js-left="23%"
+                        data-js-bottom="6%"
+                        data-js-right
+                        data-js-top
+                        data-js-icon-button
+                        aria-label="Three"
+                        tabindex="-1"
+                        aria-controls="panel-three">
+                    <span class="rc-screen-reader-text">Three</span>
                 </button>
             </div>
             <figcaption class="rc-screen-reader-text">Text about image</figcaption>
         </figure>
     </div>
     <div class="rc-column">
-        <div rc-data-button-target="one" class="rc-interactive-image--toggle-content__content rc-margin-x--lg">
+        <div id="panel-one" aria-labelledby="panel-one-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg" aria-selected="true">
             <h3 class="rc-gamma"><span class="rc-hanging-indent">1.</span>Incredible in every detail</h3>
             <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
                 urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
                 Pellentesque auctor, arcu non condimentum venenatis.</p>
         </div>
-        <div rc-data-button-target="two" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden">
+        <div id="panel-two" aria-labelledby="panel-two-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden" aria-selected="false">
             <h3 class="rc-gamma"><span class="rc-hanging-indent">2.</span>Another title</h3>
             <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
                 urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
                 Pellentesque auctor, arcu non condimentum venenatis.</p>
         </div>
-        <div rc-data-button-target="three" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden">
+        <div id="panel-three" aria-labelledby="panel-three-button" class="rc-interactive-image--toggle-content__content rc-margin-x--lg rc-hidden" aria-selected="false" tabindex="-1">
             <h3 class="rc-gamma"><span class="rc-hanging-indent">3.</span>Yet another title</h3>
             <p class="rc-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus ut
                 urna vitae placerat. Sed varius libero ut orci volutpat, ut tempus risus bibendum.
@@ -52,26 +77,120 @@
     </div>
 </div>
 
-
+<button>Test text</button>
 
 
 </body>
 
 <script>
-    document.getElementsByClassName('rc-interactive-image--toggle-content')[0]
-      .addEventListener('click', (e) => {
-        if (e.target.matches('button[rc-data-button-target]')) {
-          // Reset all the items to hidden.
-          document.querySelectorAll('div[rc-data-button-target]').forEach(el => {
-            RCDL.utilities.modifyClass('remove', el, 'rc-hidden');
-            RCDL.utilities.modifyClass('add', el, 'rc-hidden');
-          });
+  RCDL.features.interactiveImageToggleContent = {
+    defaultSelector: '.rc-interactive-image--toggle-content',
+    start: ({element, selector = RCDL.features.interactiveImageToggleContent.defaultSelector}) => {
 
-          RCDL.utilities.modifyClass('remove',
-            document.querySelector(`div[rc-data-button-target="${e.target.getAttribute('rc-data-button-target')}"]`), 'rc-hidden');
+      RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'interactiveImageToggleContent', start: true})
+        .forEach(element => RCDL.features.interactiveImageToggleContent.create({element}));
+    },
+    create: ({element}) => {
+      const buttons = Array.from(element.getElementsByClassName('rc-interactive-button'));
+      RCDL.features.interactiveImageToggleContent.instances.push(
+        {
+          buttons,
+          panel: element
         }
+      );
 
-    })
+      element.addEventListener('keydown', e => {
+        if (e.target.matches('[aria-controls]')) {
+          RCDL.features.interactiveImageToggleContent.keydownEventListener({e, buttons, panel: element});
+        }
+      });
+
+      element.addEventListener('click', e => {
+        if (e.target.matches('[aria-controls]')) {
+          RCDL.features.interactiveImageToggleContent.tabControl({e, panel: element});
+        }
+      });
+
+
+    },
+    tabControl: ({e, panel}) => {
+      panel.querySelectorAll('aria-controls').forEach(el => {
+        el.setAttribute('tabindex', '-1');
+      });
+      e.target.removeAttribute('tabindex');
+
+      // Reset all the items to hidden.
+      panel.querySelectorAll('[aria-labelledby]').forEach(el => {
+        RCDL.utilities.modifyClass('remove', el, 'rc-hidden');
+        RCDL.utilities.modifyClass('add', el, 'rc-hidden');
+        el.setAttribute('aria-selected', 'false');
+        el.removeAttribute('tabindex');
+      });
+
+      RCDL.utilities.modifyClass('remove',
+        document.getElementById(e.target.getAttribute('aria-controls')), 'rc-hidden');
+      e.target.setAttribute('aria-selected', 'true');
+      document.getElementById(e.target.getAttribute('aria-controls')).setAttribute('tabindex', '-1');
+    },
+    keydownEventListener: ({e, panel, buttons}) => {
+      const keys = {
+        end: 35,
+        home: 36,
+        left: 37,
+        up: 38,
+        right: 39,
+        down: 40,
+        delete: 46,
+        tab: 9
+      };
+      const key = e.keyCode;
+      const tabIndex = buttons.indexOf(e.target);
+
+      switch (key) {
+        case keys.end:
+          e.preventDefault();
+          // Activate last tab
+          RCDL.features.interactiveImageToggleContent.tabControl({e: buttons[buttons.length - 1], panel});
+          break;
+        case keys.home:
+          e.preventDefault();
+          // Activate first tab
+          RCDL.features.interactiveImageToggleContent.tabControl({e: buttons[0], panel});
+          break;
+
+        // Up and down are in keydown
+        // because we need to prevent page scroll >:)
+        case keys.up:
+        case keys.down:
+          break;
+
+        case keys.left:
+          if (tabIndex - 1 !== -1) {
+            buttons[tabIndex - 1].click();
+            buttons[tabIndex - 1].focus();
+          }
+          break;
+
+        case keys.right:
+          if (tabIndex + 1 !== buttons.length) {
+            buttons[tabIndex + 1].click();
+            buttons[tabIndex + 1].focus();
+          }
+          break;
+
+        case keys.tab:
+          e.preventDefault();
+          buttons[tabIndex].click();
+          buttons[tabIndex].focus();
+          document.getElementById(e.target.getAttribute('aria-controls')).focus();
+          break;
+      }
+
+    },
+    instances: []
+  };
+
+  RCDL.features.interactiveImageToggleContent.start({element: document});
 </script>
 
 <style>
