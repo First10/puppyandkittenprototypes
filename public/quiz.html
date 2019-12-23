@@ -6,50 +6,394 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Interactive Quiz</title>
     <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.critical.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.prefix.min.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-regular.min.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.rc_type-medium.min.css?v=8-7-10" type="text/css" rel="stylesheet">
-    <link href="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.styles.icons.min.css?v=8-7-10" type="text/css" rel="stylesheet">
+    <script src="https://d3moonnr9fkxfg.cloudfront.net/royal-canin.min.bundle.js?v=8-7-10"></script>
+
+    <!--    Don't include this as it's for prototyping purposes only.-->
     <script src="https://cdn.jsdelivr.net/npm/localforage@1.7.3/dist/localforage.min.js" integrity="sha256-H/ZsHjKSJUnQyCQHZwPmn7VTWFeTTI+qgCP1GkiB9zI=" crossorigin="anonymous"></script>
+    <!--    Don't include this as it's for prototyping purposes only.-->
+
 </head>
 
 <body>
-    <div class="rc-layout-container rc-one-column">
-        <div class="rc-column">
-            <div class="rc-quiz">
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="1">
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="1">Answer 1</button>
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 2</button>
-                    <button class="rc-quiz__answer" data-rc-quiz-answer="0">Answer 3</button>
+<div class="rc-layout-container rc-one-column">
+    <div class="rc-column">
+        <form class="rc-quiz" id="puppyKittenQuiz">
+            <div class="rc-quiz__slide rc-text--center rc-max-width--md" data-rc-answer-id="How often should you feed a three<br>month old puppy?">
+
+                <p class="rc-intro">Question 1 out of 5</p>
+                <h2 class="rc-beta">How often should you feed a three<br>month old puppy?</h2>
+
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box rc-text--center">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a1" value="Once a day" type="radio" name="radio-1-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q1a1">Once a day</label>
                 </div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="2"></div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="3"></div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="4"></div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="5"></div>
-                <div class="rc-quiz__slide" data-rc-quiz-slide-no="6"></div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a2" value="Twice a day" type="radio" name="radio-1-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q1a2">Twice a day</label>
+                </div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q1a3" value="Three times a day" type="radio" name="radio-1-box" data-rc-quiz-answer="1" />
+                    <label class="rc-input__label--inline" for="id-radio-q1a3">Three times a day</label>
+                </div>
             </div>
-        </div>
+            <div class="rc-quiz__slide rc-max-width--lg rc-hidden">
+
+                <div class="rc-layout-container rc-two-column">
+                    <div class="rc-column">
+                        <h2 class="rc-beta rc-text--center--mobile">Correct!</h2>
+                        <p class="rc-intro">For all breed sizes, three month old puppies require three equally sized meals a day. Puppies are unable to regulate their food intake, so more regular, smaller portions are gentler on their digestive system.</p>
+                        <p>
+                            <button class="rc-btn rc-btn--two rc-quiz__next">Next Question</button> <span class="rc-xs-up">or</span> <button class="rc-styled-link rc-quiz__back" aria-label="Go back to question">Go back</button></p>
+                    </div>
+                    <div class="rc-column">
+                        <img class="rc-img-border" src="https://developer.royalcanin.com/assets/images/img-article-full.jpg" alt="Always include descriptive alternative text for screen readers" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-text--center rc-max-width--md rc-hidden" data-rc-answer-id="When should a large breed puppy transition onto adult food?">
+
+                <p class="rc-intro">Question 2 out of 4</p>
+                <h2 class="rc-beta">When should a large breed puppy transition onto adult food?</h2>
+
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box rc-text--center">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q2a1" value="12 months" type="radio" name="radio-2-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q2a1">12 months</label>
+                </div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q2a2" value="15 months" type="radio" name="radio-2-box" data-rc-quiz-answer="1" />
+                    <label class="rc-input__label--inline" for="id-radio-q2a2">15 months</label>
+                </div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q2a3" value="18/24 months" type="radio" name="radio-2-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q2a3">18/24 months</label>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-max-width--lg rc-hidden">
+
+                <div class="rc-layout-container rc-two-column">
+                    <div class="rc-column">
+                        <h2 class="rc-beta rc-text--center--mobile">Correct!</h2>
+                        <p class="rc-intro">Large breed dogs, with an average adult weight of 26 - 44kg, reach adulthood at 15 months. If large dogs transition onto adult food at a younger age, their nutritional needs may not be appropriately supported.</p>
+                        <p>
+                            <button class="rc-btn rc-btn--two rc-quiz__next">Next Question</button>
+                            <span class="rc-xs-up">or</span>
+                            <button class="rc-styled-link rc-quiz__back" aria-label="Go back to the previous question">Go back</button></p>
+                    </div>
+                    <div class="rc-column">
+                        <img class="rc-img-border" src="https://developer.royalcanin.com/assets/images/img-article-full.jpg" alt="Always include descriptive alternative text for screen readers" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-text--center rc-max-width--md rc-hidden" data-rc-answer-id="Why is it important to transition your puppy onto a new diet gradually?">
+
+                <p class="rc-intro">Question 3 out of 4</p>
+                <h2 class="rc-beta">Why is it important to transition your puppy onto a new diet gradually?</h2>
+                <div class="">
+                    <div class="rc-input rc-input--stacked rc-input--stacked--radio-box rc-text--center">
+                        <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q3a1" value="To use up leftover kibbles" type="radio" name="radio-3-box" data-rc-quiz-answer="0" />
+                        <label class="rc-input__label--inline" for="id-radio-q3a1">To use up leftover kibbles</label>
+                    </div>
+                    <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                        <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q3a2" value="To avoid digestive upset" type="radio" name="radio-3-box" data-rc-quiz-answer="1" />
+                        <label class="rc-input__label--inline" for="id-radio-q3a2">To avoid digestive upset</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-max-width--lg rc-hidden">
+
+                <div class="rc-layout-container rc-two-column">
+                    <div class="rc-column">
+                        <h2 class="rc-beta rc-text--center--mobile">Correct!</h2>
+                        <p class="rc-intro">Dogs have sensitive stomachs, so transitioning their diet slowly over the course of a week will help to prevent digestive upset and ensure your puppy doesn’t become wary of food.</p>
+                        <p>
+                            <button class="rc-btn rc-btn--two rc-quiz__next">Next Question</button>
+                            <span class="rc-xs-up">or</span>
+                            <button class="rc-styled-link rc-quiz__back" aria-label="Go back to the previous question">Go back</button>
+                        </p>
+                    </div>
+                    <div class="rc-column">
+                        <img class="rc-img-border" src="https://developer.royalcanin.com/assets/images/img-article-full.jpg" alt="Always include descriptive alternative text for screen readers" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-text--center rc-max-width--md rc-hidden" data-rc-answer-id="What nutrients are responsible for supporting healthy joint development?">
+
+                <p class="rc-intro">Question 4 out of 4</p>
+                <h2 class="rc-beta">What nutrients are responsible for supporting healthy joint development?</h2>
+
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box rc-text--center">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q4a1" value="Protein" type="radio" name="radio-4-box" data-rc-quiz-answer="1" />
+                    <label class="rc-input__label--inline" for="id-radio-q4a1">Protein</label>
+                </div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q4a2" value="Carbohydrates" type="radio" name="radio-4-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q4a2">Carbohydrates</label>
+                </div>
+                <div class="rc-input rc-input--stacked rc-input--stacked--radio-box">
+                    <input class="rc-input__radio rc-input__radio--box rc-quiz__answer" id="id-radio-q4a3" value="Fat" type="radio" name="radio-4-box" data-rc-quiz-answer="0" />
+                    <label class="rc-input__label--inline" for="id-radio-q4a3">Fat</label>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-max-width--lg rc-hidden">
+
+                <div class="rc-layout-container rc-two-column">
+                    <div class="rc-column">
+                        <h2 class="rc-beta rc-text--center--mobile">Correct!</h2>
+                        <p class="rc-intro">Protein plays a vital role in healthy development of puppy tissue, muscle and skeleton.</p>
+                        <p>
+                            <button class="rc-btn rc-btn--two rc-quiz__next">Your Score</button>
+                            <span class="rc-xs-up">or</span>
+                            <button class="rc-styled-link rc-quiz__back" aria-label="Go back to question">Go back</button>
+                        </p>
+                    </div>
+                    <div class="rc-column">
+                        <img class="rc-img-border" src="https://developer.royalcanin.com/assets/images/img-article-full.jpg" alt="Always include descriptive alternative text for screen readers" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="rc-quiz__slide rc-max-width--md rc-hidden">
+
+                <p class="rc-intro">Thanks for taking the quiz!</p>
+                <h2 class="rc-beta">You scored <span class="rc-quiz__final-score">X/X</span></h2>
+
+                <button class="rc-btn rc-btn--one rc-quiz__start-over">Start Over</button>
+
+                <p class="rc-intro">If you’d like to find out more about nutrition and feeding for dogs, take a look at the articles below</p>
+
+                <div class="rc-card-grid rc-match-heights">
+                    <div class="rc-grid">
+                        <article class="rc-card rc-card--a">
+                            <picture class="rc-card__image">
+                                <img src="https://placehold.it/1920x1080" alt="A Dachshund jumping" />
+                            </picture>
+                            <div class="rc-card__body">
+                                <header>
+                                    <h1 class="rc-card__title">Puppies nutrition explained</h1>
+                                </header>
+                                <a href="https://www.royalcanin.com/uk/dogs/puppy/puppy-nutrition-explained" class="rc-btn rc-btn--one">View</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="rc-grid">
+                        <article class="rc-card rc-card--a">
+                            <picture class="rc-card__image">
+                                <img src="https://placehold.it/1920x1080" alt="A Dachshund jumping" />
+                            </picture>
+                            <div class="rc-card__body">
+                                <header>
+                                    <h1 class="rc-card__title">How to change your dog’s diet</h1>
+                                </header>
+                                <a href="https://www.royalcanin.com/uk/dogs/puppy/how-often-to-feed-a-puppy" class="rc-btn rc-btn--one">View</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </form>
     </div>
-</body>
-
-
-
+</div>
 <script>
+
+  RCDL.utilities.sleep = (milliseconds) => {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  };
+
   RCDL.features.quiz = {
     defaultSelector: '.rc-quiz',
+    answerDelay: 500,
+    glabalState: [],
+    savedState: null,
     start: ({element, selector = RCDL.features.quiz.defaultSelector}) => {
       RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'quiz', start: true})
-        .forEach(element => RCDL.features.quiz.create({element}));
+        .forEach(element => RCDL.features.quiz.create({quizContainer: element}));
     },
-    create: ({element}) => {
-      const quizContainer = element;
-      const quizSlides = quizContainer.getElementsByClassName('quiz__slides');
-      const quizAnswers = quizContainer.getElementsByClassName('quiz__answer');
+    create: ({quizContainer}) => {
+      let quizObj = {
+        ...RCDL.features.quiz.getParts({quizContainer}),
+        currentSlide: 0,
+        answers: {}
+      };
 
+      quizObj.listeners = {
+        // Save this here for reuse or removal later.
+        interaction: RCDL.features.quiz.interaction({quizId: quizObj.quizId, quizContainer}),
+        updateDOM: RCDL.features.quiz.updateDOM({quizId: quizObj.quizId})
+      };
+      // Setup event delegation for the quiz.
+      quizContainer.addEventListener('click', quizObj.listeners.interaction);
+      quizContainer.addEventListener('keyup', quizObj.listeners.interaction);
+
+      // Setup the local storage if it hasn't been already.
+      RCDL.features.quiz.setupLocalStateStore();
+
+      RCDL.features.quiz
+        .getState({quizId: quizObj.quizId})
+        .then(savedQuizObj => {
+          if (savedQuizObj !== null) {
+            RCDL.features.quiz.glabalState.push(Object.assign(quizObj, savedQuizObj));
+          }
+          else {
+            RCDL.features.quiz.glabalState.push(quizObj);
+          }
+          quizObj.listeners.updateDOM();
+        })
+        .catch(err => {
+          throw new Error(`RCDL quiz Error: Failed to fetch saved state. Error: ${err}`);
+        });
+    },
+    setupLocalStateStore: () => {
+      if (RCDL.features.quiz.savedState === null) {
+        RCDL.features.quiz.savedState = localforage.createInstance({
+          name: 'RCDL quiz',
+          version: 1.0,
+          storeName: 'RCDL_quiz',
+          description: 'State storage for RCDL quizzes'
+        });
+      }
+    },
+    interaction: ({quizId, quizContainer}) => {
+      // Curry the handler so we can bake in the quiz id.
+      return (e) => {
+        let updates = {
+          quizId,
+          quizSlide: RCDL.utilities.closest(e.target, '.rc-quiz__slide')
+        };
+        if (e.target.matches('.rc-quiz__answer')) {
+          updates.quizAnswer = e.target.getAttribute('data-rc-quiz-answer');
+          updates.quizSlideChange = 'increment';
+          RCDL.features.quiz.updateState(updates);
+        }
+        if (e.target.matches('.rc-quiz__next')) {
+          e.preventDefault();
+          updates.quizSlideChange = 'increment';
+          RCDL.features.quiz.updateState(updates);
+        }
+        if (e.target.matches('.rc-quiz__back')) {
+          e.preventDefault();
+          updates.quizSlideChange = 'decrement';
+          RCDL.features.quiz.updateState(updates);
+        }
+        if (e.target.matches('.rc-quiz__start-over')) {
+          RCDL.features.quiz.savedState
+            .removeItem(`RCDL_quiz_${quizId}`).then(() => {
+            RCDL.features.quiz.create({quizContainer});
+          })
+        }
+      }
+    },
+    getParts: ({quizContainer}) => {
+      return {
+        quizId: quizContainer.getAttribute('id'),
+        parts: {
+          quizContainer: quizContainer.getElementsByClassName('rc-quiz'),
+          quizSlides: Array.from(quizContainer.getElementsByClassName('rc-quiz__slide')),
+          answersBtns: Array.from(quizContainer.getElementsByClassName('rc-quiz__answer')),
+          nextBtns: Array.from(quizContainer.getElementsByClassName('rc-quiz__next')),
+          previousBtns: Array.from(quizContainer.getElementsByClassName('rc-quiz__back')),
+          finalScoreLabel: Array.from(quizContainer.getElementsByClassName('rc-quiz__final-score'))[0],
+          resetBtn: quizContainer.getElementsByClassName('rc-quiz__start-over')[0]
+        }
+      }
+    },
+    updateState: ({quizId, quizSlide, quizAnswer = null, quizSlideChange, next}) => {
+      RCDL.features.quiz.glabalState = RCDL.features.quiz.glabalState.map(quizObj => {
+        if (quizObj.quizId === quizId) {
+          // Get the slide position.
+          let currentSlide = quizObj.parts.quizSlides.indexOf(quizSlide);
+          quizObj.currentSlide = quizSlideChange === 'increment' ? ++currentSlide : --currentSlide;
+
+          if (quizAnswer !== null) {
+            quizObj.answers[quizSlide.getAttribute('data-rc-answer-id')] = {
+              answer: quizAnswer
+            };
+          }
+
+          RCDL.features.quiz.saveState({quizId, quizObj});
+          quizObj.listeners.updateDOM();
+        }
+        return quizObj;
+      });
+    },
+    getState: async ({quizId}) => {
+      return new Promise((yes, no) => {
+        RCDL.features.quiz.savedState
+          .getItem(`RCDL_quiz_${quizId}`)
+          .then(res => yes(res))
+          .catch(err => {
+            throw new Error(`RCDL quiz: Failed to get state for quiz id: ${quizId}. Error: ${err}`)
+          })
+      })
+    },
+    saveState: async ({quizId, quizObj}) => {
+      // Copy the quiz object to avoid mutations.
+      let saveStateitems = Object.assign({}, quizObj);
+      // Remove items at that bound to the DOM and shouldn't be saved.
+      delete saveStateitems.parts;
+      delete saveStateitems.listeners;
+
+      // Save to localstorage.
+      RCDL.features.quiz.savedState
+        .setItem(`RCDL_quiz_${quizId}`, saveStateitems)
+        .then(res => {
+          console.log('Updating state' , res);
+        })
+        .catch(err => {
+          console.log('ERR: ', err);
+          throw new Error(`RCDL quiz: Failed to update state for quiz id: ${quizId}.
+                Obj: ${JSON.stringify(saveStateitems)}. Error: ${err}`)
+        })
+    },
+    updateDOM: ({quizId}) => {
+      return () => {
+        RCDL.utilities.sleep(RCDL.features.quiz.answerDelay);
+        let quizObj = RCDL.features.quiz.glabalState.filter(quiz => quizId === quiz.quizId);
+        console.log(quizObj)
+
+        if (quizObj.length === 0) {
+          throw new Error(`RCDL Quiz: Missing quiz with the ID of ${quizId}`);
+        }
+        if (quizObj.length > 1) {
+          throw new Error(`RCDL Quiz: Duplicate quiz with the ID of ${quizId}`);
+        }
+
+        // We can safely flatten this as we know it's just one item.
+        quizObj = quizObj[0];
+
+        // Loop through the quiz slides and add/remove the hidden class as required.
+        quizObj.parts.quizSlides.forEach((slide, index, array) => {
+          RCDL.utilities.modifyClass(index !== quizObj.currentSlide ? 'add' : 'remove', slide, 'rc-hidden');
+
+          if (index === array.length - 1) {
+            console.log(Object.keys(quizObj.answers).length)
+            quizObj.parts.finalScoreLabel.textContent = quizObj.parts.finalScoreLabel.textContent
+              .replace('X/X', `${Object.values(quizObj.answers)
+                .reduce((acc, {answer}) =>  {
+                  console.log('kjilugigukug ', acc, answer);
+                  return parseInt(acc) + parseInt(answer)
+                }, 0)}/${Object.keys(quizObj.answers).length}`)
+          }
+        });
+      }
     }
   };
 
   RCDL.features.quiz.start({element: document});
 </script>
+</body>
+
+
+
 
 </html>
