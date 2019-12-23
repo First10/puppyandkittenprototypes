@@ -212,14 +212,18 @@
 
   RCDL.features.quiz = {
     defaultSelector: '.rc-quiz',
+    // Default delay between clicking the answer button and moving to the next slide.
     answerDelay: 500,
+    // Global in-memory state used for controlling the quiz.
     glabalState: [],
+    // Saved state is a backup of the in-memory state that used when revisiting the page.
     savedState: null,
     start: ({element, selector = RCDL.features.quiz.defaultSelector}) => {
       RCDL.utilities.DOMcheckElements({element, selectors: selector, name: 'quiz', start: true})
         .forEach(element => RCDL.features.quiz.create({quizContainer: element}));
     },
     create: ({quizContainer}) => {
+      // Create the default data and bindings for the quiz.
       let quizObj = {
         ...RCDL.features.quiz.getParts({quizContainer}),
         currentSlide: 0,
@@ -247,6 +251,8 @@
           else {
             RCDL.features.quiz.glabalState.push(quizObj);
           }
+
+          // Now the data is upto date we can update the DOM.
           quizObj.listeners.updateDOM();
         })
         .catch(err => {
@@ -273,6 +279,7 @@
         if (e.target.matches('.rc-quiz__answer')) {
           updates.quizAnswer = e.target.getAttribute('data-rc-quiz-answer');
           updates.quizSlideChange = 'increment';
+          updates.question = e.target.textContent;
           RCDL.features.quiz.updateState(updates);
         }
         if (e.target.matches('.rc-quiz__next')) {
@@ -307,17 +314,22 @@
         }
       }
     },
-    updateState: ({quizId, quizSlide, quizAnswer = null, quizSlideChange, next}) => {
+    updateState: ({quizId, quizSlide, quizAnswer, quizSlideChange, quizQuestion}) => {
       RCDL.features.quiz.glabalState = RCDL.features.quiz.glabalState.map(quizObj => {
         if (quizObj.quizId === quizId) {
           // Get the slide position.
           let currentSlide = quizObj.parts.quizSlides.indexOf(quizSlide);
           quizObj.currentSlide = quizSlideChange === 'increment' ? ++currentSlide : --currentSlide;
 
-          if (quizAnswer !== null) {
+          if (quizAnswer === "0" && quizAnswer === "1") {
             quizObj.answers[quizSlide.getAttribute('data-rc-answer-id')] = {
-              answer: quizAnswer
+              answer: quizAnswer,
+              question: quizQuestion
             };
+          }
+          else {
+            throw new Error(`RCDL quiz: Failed to get state for quiz id: ${quizId}.
+            Unknown answer value: ${quizAnswer} for question ${quizQuestion}.`);
           }
 
           RCDL.features.quiz.saveState({quizId, quizObj});
@@ -332,7 +344,7 @@
           .getItem(`RCDL_quiz_${quizId}`)
           .then(res => yes(res))
           .catch(err => {
-            throw new Error(`RCDL quiz: Failed to get state for quiz id: ${quizId}. Error: ${err}`)
+            throw new Error(`RCDL quiz: Failed to get state for quiz id: ${quizId}. Error: ${err}`);
           })
       })
     },
@@ -359,7 +371,6 @@
       return () => {
         RCDL.utilities.sleep(RCDL.features.quiz.answerDelay);
         let quizObj = RCDL.features.quiz.glabalState.filter(quiz => quizId === quiz.quizId);
-        console.log(quizObj)
 
         if (quizObj.length === 0) {
           throw new Error(`RCDL Quiz: Missing quiz with the ID of ${quizId}`);
