@@ -1,12 +1,16 @@
 .rc-section-navigation {
-  width: auto;
+  width: 100%;
   display: block;
+  padding: 0 10px;
   position: relative;
+  border-top: 2px solid #F6F6F6;
+  border-bottom: 2px solid #F6F6F6;
+  box-sizing: border-box;
 }
 
 .rc-section-navigation .collapse-control {
   position: absolute;
-  top: 0;
+  top: 12px;
   right: 0;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -25,9 +29,6 @@
 
 .rc-link-list__item {
   flex: 1 1 0%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: none;
 }
 
 .rc-link-list__item .rc-link__text {
@@ -37,8 +38,8 @@
   color: #767676;
 }
 
-.expanded .rc-link-list__item {
-  display: block;
+.expanded .rc-link-list__item .rc-link-list__anchor-link {
+  display: flex;
   border-bottom-width: 1px;
 }
 
@@ -46,32 +47,52 @@
   border-width: 0;
 }
 
-.rc-list-anchor-link {
+.rc-link-list__anchor-link {
   transition: .2s ease-in-out;
   text-decoration: none;
-  display: flex;
   height: 60px;
   position: relative;
   align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: none;
+}
+
+.rc-link-list__anchor-link.rc-link-list__item--active {
+  display: flex;
+}
+
+.rc-link-list__anchor-link.rc-link-list__item--active .rc-link__text {
+  color: #E2001A;
 }
 
 .rc-link-list__item .rc-link__icon {
   padding: 1rem;
 }
 
-.rc-link-list__item.rc-link-list__item--active {
+.rc-link-list__item {
   color: #E2001A;
   display: block;
   order: -9999;
 }
 
 @media (min-width: 960px) {
-  .rc-list-anchor-link {
-    padding-top: 25px;
+  .rc-link-list__anchor-link {
+    padding-top: 1.4rem;
+    padding-bottom: 0.2rem;
     display: block;
   }
-  .rc-list-anchor-link:hover {
+  .rc-link-list__anchor-link:hover,
+  .rc-link-list__anchor-link:focus {
     padding-top: 15px;
+  }
+  .rc-link-list__anchor-link:hover .rc-link__text,
+  .rc-link-list__anchor-link:focus .rc-link__text {
+    opacity: 1;
+  }
+  .rc-link-list__anchor-link:hover .rc-link__icon,
+  .rc-link-list__anchor-link:focus .rc-link__icon {
+    opacity: 1;
   }
   .rc-section-navigation .collapse-control {
     display: none;
@@ -85,20 +106,11 @@
     transition: .3s ease-in-out;
   }
   .rc-link-list__item .rc-link__text {
-    color: #E2001A;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     transition: .3s ease-in-out;
     opacity: 0;
     font-size: 0.875rem;
-  }
-  .rc-link-list__item:hover .rc-link__text {
-    opacity: 1;
-    bottom: 0;
-  }
-  .rc-link-list__item:hover .rc-link__icon {
-    opacity: 1;
-    bottom: 0;
   }
   .rc-section-navigation .rc-link-list {
     flex-direction: row
@@ -113,8 +125,12 @@
       padding-right: 5px;
       border-width: 0
   }
-  .expanded .rc-link-list__item {
-    border-width: 0
+  .rc-link-list__anchor-link.rc-link-list__item--active {
+    display: block;
+  }
+  .expanded .rc-link-list__item .rc-link-list__anchor-link {
+    display: block;
+    border-width: 0;
   }
 }
 

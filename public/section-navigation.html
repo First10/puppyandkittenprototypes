@@ -13,55 +13,55 @@
     <link rel="stylesheet" href="./components/section-navigation.css">
 </head>
 <body>
-<nav class="rc-section-navigation">
+<nav class="rc-section-navigation" aria-labelledby="sectional-navigation">
 
     <div class="collapse-control rc-icon rc-down--xs rc-iconography"></div>
 
     <ul class="rc-link-list">
-        <li class="rc-link-list__item rc-link-list__item--active">
-            <a class="rc-list-anchor-link" href="#welcominghome">
+        <li class="rc-link-list__item">
+            <a class="rc-link-list__anchor-link" href="#welcominghome">
                 <span class="rc-link__icon rc-icon rc-home rc-iconography"></span>
                 <span class="rc-link__text">Welcoming home</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#prearrival">
-                <span class="rc-link__icon rc-icon rc-calendar rc-iconography"></span>
+            <a class="rc-link-list__anchor-link rc-link-list__item--active" href="#prearrival">
+                <span class="rc-link__icon rc-icon rc-calendar rc-brand1"></span>
                 <span class="rc-link__text">Pre Arrival</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#feeding">
+            <a class="rc-link-list__anchor-link" href="#feeding">
                 <span class="rc-link__icon rc-icon rc-food rc-iconography"></span>
                 <span class="rc-link__text">Feeding</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#growthstages">
+            <a class="rc-link-list__anchor-link" href="#growthstages">
                 <span class="rc-link__icon rc-icon rc-weight rc-iconography"></span>
                 <span class="rc-link__text">Growth Stages</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#trainingandplay">
+            <a class="rc-link-list__anchor-link" href="#trainingandplay">
                 <span class="rc-link__icon rc-icon rc-training rc-iconography"></span>
                 <span class="rc-link__text">Training and play</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#grooming">
+            <a class="rc-link-list__anchor-link" href="#grooming">
                 <span class="rc-link__icon rc-icon rc-grooming rc-iconography"></span>
                 <span class="rc-link__text">Grooming</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#health">
+            <a class="rc-link-list__anchor-link" href="#health">
                 <span class="rc-link__icon rc-icon rc-pharmacy rc-iconography"></span>
                 <span class="rc-link__text">Health</span>
             </a>
         </li>
         <li class="rc-link-list__item">
-            <a class="rc-list-anchor-link" href="#behaviour">
+            <a class="rc-link-list__anchor-link" href="#behaviour">
                 <span class="rc-link__icon rc-icon rc-experience rc-iconography"></span>
                 <span class="rc-link__text">Behaviour</span>
             </a>
@@ -80,32 +80,16 @@
         event.target.classList.remove(expanded ? 'rc-down--xs' : 'rc-minus--xs');
         event.target.classList.add(expanded ? 'rc-minus--xs' : 'rc-down--xs');
     });
-
-    // document.querySelector('.rc-section-navigation').addEventListener('click', function (e) {
-    //   console.log('target:', e.target);
-    //   if (e.target.matches('.rc-link-list__item') || e.target.matches('.rc-list-anchor-link') || e.target.matches('.rc-link__icon')) {
-    //     control.click();
-    //     console.log('test');
-    //   }
-    // });
-
     control.parentElement.querySelectorAll('ul li a').forEach(link => {
         link.addEventListener('click', event => {
-            const listItem = event.target.parentNode.parentNode;
+            const listItemTarget = event.currentTarget;
             control.click();
-
-            link.children[0].classList.remove('rc-iconography');
-            link.children[0].classList.add('rc-brand1');
-
-            if (listItem.classList.contains('rc-link-list__item--active')) {
+            if (listItemTarget.classList.contains('rc-link-list__item--active')) {
                 event.preventDefault();
                 return;
             }
-
             control.parentElement.querySelector('.rc-link-list__item--active').classList.remove('rc-link-list__item--active');
-            listItem.classList.add('rc-link-list__item--active');
-            link.children[0].classList.remove('rc-iconography');
-            link.children[0].classList.add('rc-brand1');
+            listItemTarget.classList.add('rc-link-list__item--active');
         })
     });
 
