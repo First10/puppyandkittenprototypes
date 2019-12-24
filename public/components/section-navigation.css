@@ -88,6 +88,7 @@
   }
   .rc-link-list__anchor-link:hover .rc-link__text,
   .rc-link-list__anchor-link:focus .rc-link__text {
+    transition-delay: .1s;
     opacity: 1;
   }
   .rc-link-list__anchor-link:hover .rc-link__icon,
@@ -124,10 +125,10 @@
       padding-left: 0.6rem;
       padding-right: 0.6rem;
       border-width: 0;
-      /* transition: .25s; */
+      transition: .25s;
   }
   .rc-link-list__item:hover {
-    flex-grow: 1.5;
+    flex-grow: 2;
   }
   .rc-link-list__anchor-link.rc-link-list__item--active {
     display: block;
