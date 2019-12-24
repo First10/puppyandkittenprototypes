@@ -121,9 +121,13 @@
   .rc-link-list__item {
       text-align: center;
       display: block;
-      padding-left: 5px;
-      padding-right: 5px;
-      border-width: 0
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+      border-width: 0;
+      /* transition: .25s; */
+  }
+  .rc-link-list__item:hover {
+    flex-grow: 1.5;
   }
   .rc-link-list__anchor-link.rc-link-list__item--active {
     display: block;
@@ -131,12 +135,5 @@
   .expanded .rc-link-list__item .rc-link-list__anchor-link {
     display: block;
     border-width: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .rc-link-list__item {
-      padding-left: 2rem;
-      padding-right: 2rem
   }
 }
