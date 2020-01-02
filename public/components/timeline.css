@@ -23,6 +23,7 @@
   color: #767676;
   cursor: pointer;
   font-size: 0.9rem;
+  max-width: 120px;
 }
 
 .rc-timeline-nav li.rc-timeline-nav-item__active {
@@ -36,8 +37,7 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 14px;
   transition: .15s ease-in-out;
 }
 
