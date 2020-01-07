@@ -16,7 +16,7 @@
         <figure class="rc-bg-image rc-fixed-ratio rc-fixed-ratio--16-9" style="background-image: url('./images/boxer-puppy.png')">
             <div class="rc-interactive-image">
                 <button id="panel-one-button"
-                        class="rc-btn rc-btn--action rc-interactive-image__button rc-interactive-button rc-ignore-aspect-ratio"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-plus--xs rc-interactive-button rc-interactive-image__button"
                         data-js-left="30%"
                         data-js-bottom
                         data-js-right
@@ -25,10 +25,9 @@
                         aria-label="One"
                         aria-controls="panel-one">
                     <span class="rc-screen-reader-text">One</span>
-                    <span class="rc-interactive-image-number">1</span>
                 </button>
                 <button id="panel-two-button"
-                        class="rc-btn rc-btn--action rc-interactive-image__button rc-interactive-button rc-ignore-aspect-ratio"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-sustainable--xs rc-interactive-button rc-interactive-image__button"
                         data-js-left
                         data-js-bottom
                         data-js-right="34%"
@@ -38,10 +37,9 @@
                         tabindex="-1"
                         aria-controls="panel-two">
                     <span class="rc-screen-reader-text">Two</span>
-                    <span class="rc-interactive-image-number">2</span>
                 </button>
                 <button id="panel-three-button"
-                        class="rc-btn rc-btn--action rc-interactive-image__button rc-interactive-button rc-ignore-aspect-ratio"
+                        class="rc-btn rc-btn--action rc-icon rc-brand3 rc-food--xs rc-interactive-button rc-interactive-image__button"
                         data-js-left="23%"
                         data-js-bottom="6%"
                         data-js-right
@@ -51,7 +49,6 @@
                         tabindex="-1"
                         aria-controls="panel-three">
                     <span class="rc-screen-reader-text">Three</span>
-                    <span class="rc-interactive-image-number">3</span>
                 </button>
             </div>
             <figcaption class="rc-screen-reader-text">Text about image</figcaption>
@@ -201,13 +198,6 @@
 
     .rc-interactive-image--toggle-content__content {
         position: relative;
-    }
-
-    .rc-interactive-image-number {
-      top: 50% !important;
-      left: 50% !important;
-      position: absolute;
-      transform: translate(-50%, -50%);
     }
 
     @media (max-width: 769px) {
