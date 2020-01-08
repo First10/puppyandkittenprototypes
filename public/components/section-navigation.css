@@ -3,9 +3,8 @@
   display: block;
   padding: 0 10px;
   position: relative;
-  border-top: 2px solid #F6F6F6;
-  border-bottom: 2px solid #F6F6F6;
   box-sizing: border-box;
+  background-color: #ffffff;
 }
 
 .rc-section-navigation .collapse-control {
@@ -122,8 +121,6 @@
   .rc-link-list__item {
       text-align: center;
       display: block;
-      padding-left: 0.6rem;
-      padding-right: 0.6rem;
       border-width: 0;
       transition: .25s;
   }
